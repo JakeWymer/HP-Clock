@@ -20,4 +20,6 @@
 - (IBAction)Pub:(id)sender;
 - (IBAction)Mischief:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *currentLocationLabel;
+
 @end

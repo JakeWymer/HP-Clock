@@ -11,10 +11,27 @@
 @implementation Buttons
 
 NSString *data;
+NSString *currentLocation;
+NSString *savedLocation;
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view, typically from a nib.
+    
+    NSString *savedLocation = [[NSUserDefaults standardUserDefaults]
+                               stringForKey:@"clocklocation"].lowercaseString;
+    if(savedLocation != nil){
+        _currentLocationLabel.text = savedLocation;
+    }
+    
+}
 
 - (IBAction)Home:(id)sender {
     
     data = @"home";
+    [self setLocation:data];
+    
     NSString *savedName = [[NSUserDefaults standardUserDefaults]
                             stringForKey:@"clockname"].lowercaseString;
     
@@ -30,6 +47,8 @@ NSString *data;
 
 - (IBAction)School:(id)sender {
     data = @"school";
+    [self setLocation:data];
+    
     NSString *savedName = [[NSUserDefaults standardUserDefaults]
                            stringForKey:@"clockname"].lowercaseString;
     
@@ -42,6 +61,8 @@ NSString *data;
 
 - (IBAction)Work:(id)sender {
     data = @"work";
+    [self setLocation:data];
+    
     NSString *savedName = [[NSUserDefaults standardUserDefaults]
                            stringForKey:@"clockname"].lowercaseString;
     
@@ -56,6 +77,8 @@ NSString *data;
 
 - (IBAction)Travel:(id)sender {
     data = @"travel";
+    [self setLocation:data];
+    
     NSString *savedName = [[NSUserDefaults standardUserDefaults]
                            stringForKey:@"clockname"].lowercaseString;
     
@@ -70,6 +93,8 @@ NSString *data;
 
 - (IBAction)Jail:(id)sender {
     data = @"jail";
+    [self setLocation:data];
+    
     NSString *savedName = [[NSUserDefaults standardUserDefaults]
                            stringForKey:@"clockname"].lowercaseString;
     
@@ -84,6 +109,8 @@ NSString *data;
 
 - (IBAction)Pub:(id)sender {
     data = @"pub";
+    [self setLocation:data];
+    
     NSString *savedName = [[NSUserDefaults standardUserDefaults]
                            stringForKey:@"clockname"].lowercaseString;
     
@@ -98,6 +125,8 @@ NSString *data;
 
 - (IBAction)Mischief:(id)sender {
     data = @"mischief";
+    [self setLocation:data];
+    
     NSString *savedName = [[NSUserDefaults standardUserDefaults]
                            stringForKey:@"clockname"].lowercaseString;
     
@@ -114,7 +143,7 @@ NSString *data;
     NSLog(@"%@ sent!", data);
     
     //Login to the cloud
-    [[SparkCloud sharedInstance] loginWithUser:@"wymerbaseball14@gmail.com" password:@"ENTERPASSHERE" completion:^(NSError *error) {
+    [[SparkCloud sharedInstance] loginWithUser:@"wymerbaseball14@gmail.com" password:@"Annabe113" completion:^(NSError *error) {
         if (!error)
             NSLog(@"Logged in to cloud");
         else
@@ -123,7 +152,7 @@ NSString *data;
     
     //Connect to jake_photon and set as myPhoton
     __block SparkDevice *myPhoton;
-    NSString *deviceID = @"ENTER DEVICE ID HERE";
+    NSString *deviceID = @"27002b000a47343432313031";
     [[SparkCloud sharedInstance] getDevice:deviceID completion:^(SparkDevice *device, NSError *error) {
         if (!error){
             myPhoton = device;
@@ -140,5 +169,13 @@ NSString *data;
         
     }];
 
+}
+
+- (void)setLocation:data{
+    currentLocation = data;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:data forKey:@"clocklocation"];
+    [defaults synchronize];
+    _currentLocationLabel.text = data;
 }
 @end

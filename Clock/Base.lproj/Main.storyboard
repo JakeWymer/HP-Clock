@@ -116,6 +116,12 @@
                                     <action selector="Mischief:" destination="vfy-98-nVu" eventType="touchUpInside" id="Lpp-ui-1uV"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwy-1K-auc">
+                                <rect key="frame" x="279" y="42" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -126,13 +132,18 @@
                             <constraint firstItem="bZ1-t3-5ax" firstAttribute="top" secondItem="f14-qB-DED" secondAttribute="bottom" constant="8" symbolic="YES" id="BGb-YF-bdg"/>
                             <constraint firstItem="UTr-iu-izr" firstAttribute="top" secondItem="jIh-Te-zEE" secondAttribute="bottom" constant="8" symbolic="YES" id="Liv-wy-qPy"/>
                             <constraint firstItem="dTN-QI-Qgp" firstAttribute="centerX" secondItem="k9a-kz-nGK" secondAttribute="centerX" id="Lye-pq-BQR"/>
+                            <constraint firstItem="cwy-1K-auc" firstAttribute="top" secondItem="To4-Vg-26h" secondAttribute="bottom" constant="22" id="OcV-On-hQ1"/>
                             <constraint firstItem="UTr-iu-izr" firstAttribute="centerX" secondItem="jIh-Te-zEE" secondAttribute="centerX" id="Qn5-nq-kSC"/>
                             <constraint firstItem="f14-qB-DED" firstAttribute="trailing" secondItem="jIh-Te-zEE" secondAttribute="trailing" id="Tkb-bs-zUK"/>
                             <constraint firstItem="VNz-nf-Wsi" firstAttribute="top" secondItem="UTr-iu-izr" secondAttribute="bottom" constant="408" id="eso-5t-ra1"/>
                             <constraint firstItem="dTN-QI-Qgp" firstAttribute="top" secondItem="k9a-kz-nGK" secondAttribute="bottom" constant="8" symbolic="YES" id="kdx-DI-9PL"/>
                             <constraint firstItem="k9a-kz-nGK" firstAttribute="top" secondItem="bZ1-t3-5ax" secondAttribute="bottom" constant="8" symbolic="YES" id="pX2-ZU-xFS"/>
+                            <constraint firstItem="cwy-1K-auc" firstAttribute="leading" secondItem="f14-qB-DED" secondAttribute="leading" id="rqQ-iF-hpq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentLocationLabel" destination="cwy-1K-auc" id="jlq-bW-nHk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKC-cu-fpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -143,7 +143,7 @@ NSString *savedLocation;
     NSLog(@"%@ sent!", data);
     
     //Login to the cloud
-    [[SparkCloud sharedInstance] loginWithUser:@"wymerbaseball14@gmail.com" password:@"Annabe113" completion:^(NSError *error) {
+    [[SparkCloud sharedInstance] loginWithUser:@"wymerbaseball14@gmail.com" password:@"" completion:^(NSError *error) {
         if (!error)
             NSLog(@"Logged in to cloud");
         else
@@ -152,7 +152,7 @@ NSString *savedLocation;
     
     //Connect to jake_photon and set as myPhoton
     __block SparkDevice *myPhoton;
-    NSString *deviceID = @"27002b000a47343432313031";
+    NSString *deviceID = @"";
     [[SparkCloud sharedInstance] getDevice:deviceID completion:^(SparkDevice *device, NSError *error) {
         if (!error){
             myPhoton = device;
